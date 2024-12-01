@@ -1,0 +1,27 @@
+[gd_scene load_steps=4 format=3 uid="uid://vnrkhivcb16q"]
+
+[ext_resource type="Script" path="res://script/portal.gd" id="1_v8y1a"]
+
+[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_owea2"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_i2grr"]
+size = Vector2(109.851, 138.296)
+
+[node name="portal" type="Area2D"]
+scale = Vector2(0.169281, 0.245849)
+script = ExtResource("1_v8y1a")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(-3.5625, 9.53674e-07)
+scale = Vector2(135.125, 126)
+texture = SubResource("PlaceholderTexture2D_owea2")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-2.5, 0)
+shape = SubResource("RectangleShape2D_i2grr")
+
+[node name="destination" type="Marker2D" parent="."]
+position = Vector2(122, 0)
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

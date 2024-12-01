@@ -1,0 +1,126 @@
+[gd_scene load_steps=12 format=3 uid="uid://pn4o5casabct"]
+
+[ext_resource type="Script" path="res://scene/game.gd" id="1_k3vxu"]
+[ext_resource type="PackedScene" uid="uid://bdawmshijetq6" path="res://scene/player.tscn" id="1_rar5y"]
+[ext_resource type="PackedScene" uid="uid://by7p8s05mve3e" path="res://scene/map.tscn" id="2_02dgb"]
+[ext_resource type="PackedScene" uid="uid://0lrjc53m4nt" path="res://scene/button.tscn" id="3_jtsau"]
+[ext_resource type="PackedScene" uid="uid://vnrkhivcb16q" path="res://scene/portal.tscn" id="4_eaxo5"]
+[ext_resource type="PackedScene" uid="uid://v7rd1sry28nw" path="res://scene/coin.tscn" id="5_eo7kc"]
+[ext_resource type="PackedScene" uid="uid://dsmo1t0xdemcr" path="res://scene/pickaxe.tscn" id="6_imtho"]
+[ext_resource type="PackedScene" uid="uid://bujjko8jvwjgr" path="res://scene/breakablewalltop.tscn" id="7_b56qu"]
+[ext_resource type="PackedScene" uid="uid://bownjed6iwphp" path="res://scene/breakable_wall_side.tscn" id="8_onrge"]
+[ext_resource type="PackedScene" uid="uid://d2chgn48ru6so" path="res://scene/key.tscn" id="9_na5t5"]
+[ext_resource type="PackedScene" uid="uid://dejh35craj8jg" path="res://scene/pause_menu.tscn" id="11_6g3v8"]
+
+[node name="game" type="Node2D"]
+script = ExtResource("1_k3vxu")
+
+[node name="CharacterBody2D" parent="." instance=ExtResource("1_rar5y")]
+
+[node name="pause_menu" parent="CharacterBody2D" instance=ExtResource("11_6g3v8")]
+visible = false
+offset_left = -115.625
+offset_top = -78.5717
+offset_right = -115.625
+offset_bottom = -78.5717
+scale = Vector2(2.19, 2.19)
+
+[node name="TileMap" parent="." instance=ExtResource("2_02dgb")]
+light_mask = 0
+
+[node name="button" parent="." instance=ExtResource("3_jtsau")]
+position = Vector2(55, -77)
+
+[node name="portal" parent="." instance=ExtResource("4_eaxo5")]
+position = Vector2(887, 0)
+
+[node name="CollisionShape2D" parent="portal" index="1"]
+position = Vector2(0, 5.81866e-06)
+
+[node name="destination" parent="portal" index="2"]
+position = Vector2(-4105.6, 0)
+scale = Vector2(-5.09618, 6.66597)
+
+[node name="Coin" type="Node2D" parent="."]
+
+[node name="coin" parent="Coin" groups=["coin"] instance=ExtResource("5_eo7kc")]
+position = Vector2(232, 234)
+
+[node name="coin2" parent="Coin" groups=["coin"] instance=ExtResource("5_eo7kc")]
+position = Vector2(313, 169)
+
+[node name="coin3" parent="Coin" groups=["coin"] instance=ExtResource("5_eo7kc")]
+position = Vector2(249, 57)
+
+[node name="coin4" parent="Coin" groups=["coin"] instance=ExtResource("5_eo7kc")]
+position = Vector2(233, -55)
+
+[node name="coin5" parent="Coin" groups=["coin"] instance=ExtResource("5_eo7kc")]
+position = Vector2(424, -22)
+
+[node name="coin6" parent="Coin" groups=["coin"] instance=ExtResource("5_eo7kc")]
+position = Vector2(424, 41)
+
+[node name="coin7" parent="Coin" groups=["coin"] instance=ExtResource("5_eo7kc")]
+position = Vector2(536, 42)
+
+[node name="coin8" parent="Coin" groups=["coin"] instance=ExtResource("5_eo7kc")]
+position = Vector2(536, -23)
+
+[node name="coin9" parent="Coin" groups=["coin"] instance=ExtResource("5_eo7kc")]
+position = Vector2(408, -119)
+
+[node name="coin10" parent="Coin" groups=["coin"] instance=ExtResource("5_eo7kc")]
+position = Vector2(392, -183)
+
+[node name="coin11" parent="Coin" groups=["coin"] instance=ExtResource("5_eo7kc")]
+position = Vector2(233, -215)
+
+[node name="coin12" parent="Coin" groups=["coin"] instance=ExtResource("5_eo7kc")]
+position = Vector2(456, -231)
+
+[node name="coin13" parent="Coin" groups=["coin"] instance=ExtResource("5_eo7kc")]
+position = Vector2(504, -231)
+
+[node name="coin14" parent="Coin" groups=["coin"] instance=ExtResource("5_eo7kc")]
+position = Vector2(584, -182)
+
+[node name="coin15" parent="Coin" groups=["coin"] instance=ExtResource("5_eo7kc")]
+position = Vector2(744, -215)
+
+[node name="coin16" parent="Coin" groups=["coin"] instance=ExtResource("5_eo7kc")]
+position = Vector2(552, -119)
+
+[node name="coin17" parent="Coin" groups=["coin"] instance=ExtResource("5_eo7kc")]
+position = Vector2(744, -54)
+
+[node name="coin18" parent="Coin" groups=["coin"] instance=ExtResource("5_eo7kc")]
+position = Vector2(728, 57)
+
+[node name="coin19" parent="Coin" groups=["coin"] instance=ExtResource("5_eo7kc")]
+position = Vector2(665, 169)
+
+[node name="coin20" parent="Coin" groups=["coin"] instance=ExtResource("5_eo7kc")]
+position = Vector2(423, 217)
+
+[node name="coin21" parent="Coin" groups=["coin"] instance=ExtResource("5_eo7kc")]
+position = Vector2(536, 217)
+
+[node name="coin22" parent="Coin" groups=["coin"] instance=ExtResource("5_eo7kc")]
+position = Vector2(744, 233)
+
+[node name="pickaxe" parent="." instance=ExtResource("6_imtho")]
+position = Vector2(-88, 217)
+scale = Vector2(0.555568, 0.593085)
+
+[node name="breakablewall" parent="." instance=ExtResource("7_b56qu")]
+position = Vector2(-41, -40)
+
+[node name="key" parent="." instance=ExtResource("9_na5t5")]
+position = Vector2(-41, -447)
+scale = Vector2(0.41761, 0.375919)
+
+[node name="breakable wall side" parent="." instance=ExtResource("8_onrge")]
+position = Vector2(100, 15)
+
+[editable path="portal"]

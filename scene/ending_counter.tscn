@@ -1,0 +1,60 @@
+[gd_scene load_steps=5 format=3 uid="uid://4xvtglcai2qh"]
+
+[ext_resource type="FontVariation" uid="uid://deggtjf0wo8mp" path="res://scene/font.tres" id="1_wqiqf"]
+[ext_resource type="Script" path="res://scene/ending_counter.gd" id="2_ob8cb"]
+[ext_resource type="Script" path="res://script/ending_counter.gd" id="3_uxmtr"]
+
+[sub_resource type="VideoStreamTheora" id="VideoStreamTheora_mh2ps"]
+file = "res://mainmenu.ogv"
+
+[node name="ending counter" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("2_ob8cb")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="."]
+texture_filter = 1
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.373698
+anchor_top = 0.401235
+anchor_right = 0.373698
+anchor_bottom = 0.401235
+offset_left = -94.5
+offset_right = 94.5
+offset_bottom = 23.0
+grow_horizontal = 2
+scale = Vector2(3.045, 3.045)
+theme_override_fonts/normal_font = ExtResource("1_wqiqf")
+text = "Ending 0/10"
+script = ExtResource("3_uxmtr")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+top_level = true
+layout_mode = 0
+offset_left = 434.0
+offset_top = 434.0
+offset_right = 561.0
+offset_bottom = 474.0
+scale = Vector2(2.19, 2.19)
+
+[node name="restart" type="Button" parent="VBoxContainer"]
+texture_filter = 1
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_wqiqf")
+text = "restart"
+
+[node name="VideoStreamPlayer" type="VideoStreamPlayer" parent="."]
+show_behind_parent = true
+texture_filter = 1
+offset_right = 1152.0
+offset_bottom = 656.0
+stream = SubResource("VideoStreamTheora_mh2ps")
+autoplay = true
+loop = true
+
+[connection signal="pressed" from="VBoxContainer/restart" to="." method="_on_restart_pressed"]

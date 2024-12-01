@@ -1,0 +1,85 @@
+[gd_scene load_steps=11 format=3 uid="uid://bownjed6iwphp"]
+
+[ext_resource type="Script" path="res://scene/breakable_wall_side.gd" id="1_k1yyb"]
+[ext_resource type="Texture2D" uid="uid://cu2ri16g7u6gb" path="res://art/2D Pixel Dungeon Asset Pack v2.0/2D Pixel Dungeon Asset Pack/character and tileset/map_assets_final_prob.png" id="1_sk0gj"]
+[ext_resource type="Texture2D" uid="uid://be4och2k062m4" path="res://art/2D Pixel Dungeon Asset Pack v2.0/2D Pixel Dungeon Asset Pack/character and tileset/map_assets_final_FINAL.png" id="2_3vr67"]
+[ext_resource type="PackedScene" uid="uid://dr5rly0eea1kv" path="res://scene/interaction_area.tscn" id="2_5yua5"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_whq53"]
+atlas = ExtResource("2_3vr67")
+region = Rect2(96, 80, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_8nikq"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_whq53")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7lxmf"]
+atlas = ExtResource("1_sk0gj")
+region = Rect2(144, 96, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_x4hgl"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7lxmf")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_wdtgy"]
+size = Vector2(20, 33)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_atmkm"]
+size = Vector2(18, 31)
+
+[node name="breakable wall side" type="StaticBody2D"]
+rotation = 3.14159
+scale = Vector2(1.00508, 1)
+script = ExtResource("1_k1yyb")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+texture_filter = 1
+position = Vector2(5.92917, 6.5)
+rotation = 3.14159
+scale = Vector2(1, 1.1875)
+sprite_frames = SubResource("SpriteFrames_8nikq")
+
+[node name="AnimatedSprite2D3" type="AnimatedSprite2D" parent="."]
+texture_filter = 1
+position = Vector2(5.92918, 24.5)
+rotation = 3.14159
+scale = Vector2(1, 1.7875)
+sprite_frames = SubResource("SpriteFrames_8nikq")
+
+[node name="AnimatedSprite2D2" type="AnimatedSprite2D" parent="."]
+texture_filter = 1
+position = Vector2(-77.6054, 4.76837e-06)
+rotation = 3.14159
+scale = Vector2(9.4375, 19.8125)
+sprite_frames = SubResource("SpriteFrames_x4hgl")
+
+[node name="InteractionArea" parent="." instance=ExtResource("2_5yua5")]
+rotation = 3.14159
+scale = Vector2(1.40588, 2.81827)
+action_name = "open"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="InteractionArea"]
+visible = false
+position = Vector2(1, 7.5)
+rotation = 3.14159
+shape = SubResource("RectangleShape2D_wdtgy")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+visible = false
+position = Vector2(-1, 7.5)
+rotation = 3.14159
+shape = SubResource("RectangleShape2D_atmkm")

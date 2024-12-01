@@ -1,0 +1,34 @@
+[gd_scene load_steps=5 format=3 uid="uid://dqh70oj8q6q4m"]
+
+[ext_resource type="Texture2D" uid="uid://cu2ri16g7u6gb" path="res://art/2D Pixel Dungeon Asset Pack v2.0/2D Pixel Dungeon Asset Pack/character and tileset/map_assets_final_prob.png" id="1_lxwsm"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_mcsj4"]
+size = Vector2(29.0787, 18.3665)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vheqx"]
+atlas = ExtResource("1_lxwsm")
+region = Rect2(64, 128, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_mhwi5"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vheqx")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="StaticBody2D" type="StaticBody2D"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-2.38419e-07, 7.31772)
+scale = Vector2(0.619009, 1.01464)
+shape = SubResource("RectangleShape2D_mcsj4")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+texture_filter = 1
+position = Vector2(0, 9.53674e-07)
+scale = Vector2(2.39907, 2.30395)
+sprite_frames = SubResource("SpriteFrames_mhwi5")

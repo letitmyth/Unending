@@ -1,0 +1,23 @@
+[gd_scene load_steps=3 format=3 uid="uid://c5li2vgu3pgku"]
+
+[ext_resource type="FontVariation" uid="uid://deggtjf0wo8mp" path="res://scene/font.tres" id="1_ps6nd"]
+[ext_resource type="Script" path="res://script/interaction_manager.gd" id="1_yw26h"]
+
+[node name="InteractionManager" type="Node2D"]
+script = ExtResource("1_yw26h")
+
+[node name="Label" type="Label" parent="."]
+z_index = 20
+texture_filter = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -92.0
+offset_right = 92.0
+offset_bottom = 34.0
+grow_horizontal = 2
+theme_override_fonts/font = ExtResource("1_ps6nd")
+theme_override_font_sizes/font_size = 6
+text = "E to interact"
+horizontal_alignment = 1
+vertical_alignment = 1

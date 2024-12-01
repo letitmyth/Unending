@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://bjro7toy8r526"]
+
+[ext_resource type="AudioStream" uid="uid://bj56qm3d4ar7l" path="res://10 seconds left wdaw.wav" id="1_ki4uv"]
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D"]
+stream = ExtResource("1_ki4uv")
+autoplay = true

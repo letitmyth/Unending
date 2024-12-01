@@ -1,0 +1,50 @@
+[gd_scene load_steps=7 format=3 uid="uid://0lrjc53m4nt"]
+
+[ext_resource type="Texture2D" uid="uid://b1ihixaghcgqw" path="res://art/2D Pixel Dungeon Asset Pack v2.0/2D Pixel Dungeon Asset Pack/character and tileset/art_save_1.png" id="1_c7mms"]
+[ext_resource type="Script" path="res://script/button.gd" id="1_wuxxl"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_3treb"]
+size = Vector2(12, 8)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nuut2"]
+atlas = ExtResource("1_c7mms")
+region = Rect2(80, 96, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_whtbn"]
+atlas = ExtResource("1_c7mms")
+region = Rect2(80, 112, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_pr8ps"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_nuut2")
+}],
+"loop": true,
+"name": &"not_press",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_whtbn")
+}],
+"loop": true,
+"name": &"press",
+"speed": 5.0
+}]
+
+[node name="button" type="Node2D"]
+
+[node name="Area2D" type="Area2D" parent="."]
+script = ExtResource("1_wuxxl")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(0, 3)
+shape = SubResource("RectangleShape2D_3treb")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Area2D"]
+texture_filter = 1
+position = Vector2(5.36442e-07, -4.76837e-07)
+scale = Vector2(1.25, 1.25)
+sprite_frames = SubResource("SpriteFrames_pr8ps")
+animation = &"not_press"

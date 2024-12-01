@@ -1,0 +1,68 @@
+[gd_scene load_steps=4 format=3 uid="uid://di0xg61yrs0m7"]
+
+[ext_resource type="Script" path="res://script/menu.gd" id="1_lrr3c"]
+[ext_resource type="FontVariation" uid="uid://deggtjf0wo8mp" path="res://scene/font.tres" id="2_treuq"]
+
+[sub_resource type="VideoStreamTheora" id="VideoStreamTheora_n0v3u"]
+file = "res://mainmenu.ogv"
+
+[node name="Menu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_lrr3c")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+top_level = true
+texture_filter = 1
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.487
+anchor_top = 0.796
+anchor_right = 0.487
+anchor_bottom = 0.796
+offset_left = -132.024
+offset_top = -67.808
+offset_right = 14.856
+offset_bottom = 0.191956
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(2, 2)
+theme_override_constants/separation = 6
+
+[node name="start" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_treuq")
+text = "Start"
+
+[node name="exit" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_treuq")
+text = "Exit"
+
+[node name="Label" type="Label" parent="."]
+texture_filter = 1
+layout_mode = 0
+offset_left = 280.0
+offset_top = 227.0
+offset_right = 433.0
+offset_bottom = 250.0
+scale = Vector2(4.615, 4.615)
+theme_override_fonts/font = ExtResource("2_treuq")
+text = "Unending"
+
+[node name="VideoStreamPlayer" type="VideoStreamPlayer" parent="."]
+show_behind_parent = true
+texture_filter = 1
+layout_mode = 0
+offset_right = 1152.0
+offset_bottom = 656.0
+stream = SubResource("VideoStreamTheora_n0v3u")
+autoplay = true
+loop = true
+
+[connection signal="pressed" from="VBoxContainer/start" to="." method="_on_start_pressed"]
+[connection signal="pressed" from="VBoxContainer/exit" to="." method="_on_exit_pressed"]

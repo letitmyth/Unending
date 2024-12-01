@@ -1,0 +1,33 @@
+[gd_scene load_steps=5 format=3 uid="uid://dck5nhi6axke6"]
+
+[ext_resource type="Texture2D" uid="uid://cu2ri16g7u6gb" path="res://art/2D Pixel Dungeon Asset Pack v2.0/2D Pixel Dungeon Asset Pack/character and tileset/map_assets_final_prob.png" id="1_61ny0"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_h32hn"]
+atlas = ExtResource("1_61ny0")
+region = Rect2(128, 96, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2ec8m"]
+atlas = ExtResource("1_61ny0")
+region = Rect2(128, 112, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_611aj"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_h32hn")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2ec8m")
+}],
+"loop": true,
+"name": &"water",
+"speed": 5.0
+}]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D"]
+position = Vector2(12, 12)
+scale = Vector2(1.5, 1.5)
+sprite_frames = SubResource("SpriteFrames_611aj")
+animation = &"water"
+frame = 1
+frame_progress = 0.176368

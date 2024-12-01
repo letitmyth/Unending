@@ -1,0 +1,42 @@
+[gd_scene load_steps=6 format=3 uid="uid://bdawmshijetq6"]
+
+[ext_resource type="Script" path="res://script/character_body_2d.gd" id="1_mt8s4"]
+[ext_resource type="Texture2D" uid="uid://c3kjuw6pny10m" path="res://art/2D Pixel Dungeon Asset Pack v2.0/2D Pixel Dungeon Asset Pack/Character_animation/oc_running_1.png" id="2_1vmj8"]
+[ext_resource type="Texture2D" uid="uid://d3lptk5f0a5pq" path="res://art/2D Pixel Dungeon Asset Pack v2.0/2D Pixel Dungeon Asset Pack/Character_animation/oc_running_2.png" id="3_y0xyr"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ho6fu"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_1vmj8")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_y0xyr")
+}],
+"loop": true,
+"name": &"walk",
+"speed": 5.0
+}]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_uhe14"]
+radius = 17.0
+height = 35.7144
+
+[node name="CharacterBody2D" type="CharacterBody2D" groups=["player"]]
+top_level = true
+scale = Vector2(0.320001, 0.279999)
+script = ExtResource("1_mt8s4")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+texture_filter = 1
+scale = Vector2(4.37499, 4.37303)
+sprite_frames = SubResource("SpriteFrames_ho6fu")
+animation = &"walk"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 2.38419e-07)
+shape = SubResource("CapsuleShape2D_uhe14")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+zoom = Vector2(4.5, 4.5)
+editor_draw_limits = true

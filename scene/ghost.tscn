@@ -1,0 +1,32 @@
+[gd_scene load_steps=5 format=3 uid="uid://t1rwu5d3cd7h"]
+
+[ext_resource type="Texture2D" uid="uid://niydavgowp8i" path="res://art/2D Pixel Dungeon Asset Pack v2.0/2D Pixel Dungeon Asset Pack/character and tileset/map_assets_final_for_sure.png" id="1_s1tt0"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_y5jji"]
+atlas = ExtResource("1_s1tt0")
+region = Rect2(144, 128, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_i2n4w"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_y5jji")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_h3w3n"]
+radius = 6.0
+
+[node name="ghost" type="Area2D"]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+texture_filter = 1
+sprite_frames = SubResource("SpriteFrames_i2n4w")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_h3w3n")
+
+[node name="NavigationAgent2D" type="NavigationAgent2D" parent="."]

@@ -1,0 +1,6 @@
+[gd_resource type="FontVariation" load_steps=2 format=3 uid="uid://deggtjf0wo8mp"]
+
+[ext_resource type="FontFile" uid="uid://f51sd2vbq4c6" path="res://scene/Daydream.ttf" id="1_i62wd"]
+
+[resource]
+base_font = ExtResource("1_i62wd")
